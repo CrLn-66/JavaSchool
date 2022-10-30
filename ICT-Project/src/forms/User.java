@@ -3,7 +3,7 @@ package forms;
 import java.io.File;
 
 public class User {
-	private File profile = new File("C:\\Users\\Abrasaldo\\eclipse-workspace\\ICT-Project\\src\\forms\\test.jpg");
+	private File profile = new File("C:\\Users\\Abrasaldo\\eclipse-workspace\\ICT-Project\\src\\forms\\profile-def.png");
 	private String firstName;
 	private String lastName;
 	private String password;
