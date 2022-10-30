@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Register extends JFrame {
 
@@ -24,6 +26,8 @@ public class Register extends JFrame {
 	private JTextField sname;
 	private JTextField username;
 	private JPasswordField pass;
+	private JTextField section;
+	private JTextField grade;
 	/**
 	 * Create the frame.
 	 */
@@ -70,7 +74,7 @@ public class Register extends JFrame {
 		panel.add(lblNewLabel_1_1);
 		
 		fname = new JTextField();
-		fname.setBounds(89, 68, 152, 29);
+		fname.setBounds(89, 68, 120, 29);
 		panel.add(fname);
 		fname.setColumns(10);
 		
@@ -84,7 +88,7 @@ public class Register extends JFrame {
 		
 		sname = new JTextField();
 		sname.setColumns(10);
-		sname.setBounds(89, 113, 152, 29);
+		sname.setBounds(89, 113, 120, 29);
 		panel.add(sname);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Username :");
@@ -93,7 +97,7 @@ public class Register extends JFrame {
 		
 		username = new JTextField();
 		username.setColumns(10);
-		username.setBounds(89, 157, 152, 29);
+		username.setBounds(89, 157, 120, 29);
 		panel.add(username);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("Password :");
@@ -101,7 +105,7 @@ public class Register extends JFrame {
 		panel.add(lblNewLabel_2_1_1_1);
 		
 		pass = new JPasswordField();
-		pass.setBounds(89, 202, 152, 28);
+		pass.setBounds(89, 202, 120, 28);
 		panel.add(pass);
 		
 		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Birthday :");
@@ -111,7 +115,32 @@ public class Register extends JFrame {
 		DatePicker bday = new DatePicker();
 		bday.setBounds(89, 247, 152, 24);
 		panel.add(bday);
+		JLabel lblNewLabel_2_2 = new JLabel("Section : ");
+		lblNewLabel_2_2.setBounds(216, 74, 73, 16);
+		panel.add(lblNewLabel_2_2);
 		
+		section = new JTextField();
+		section.setColumns(10);
+		section.setBounds(278, 68, 120, 29);
+		panel.add(section);
+		
+		JLabel lblNewLabel_2_2_1 = new JLabel("Sex : ");
+		lblNewLabel_2_2_1.setBounds(216, 163, 73, 16);
+		panel.add(lblNewLabel_2_2_1);
+		
+		JComboBox sex = new JComboBox();
+		sex.setModel(new DefaultComboBoxModel(new String[] {"MALE", "FEMALE"}));
+		sex.setBounds(278, 159, 120, 25);
+		panel.add(sex);
+		
+		JLabel lblNewLabel_2_2_1_1 = new JLabel("Grade : ");
+		lblNewLabel_2_2_1_1.setBounds(216, 119, 73, 16);
+		panel.add(lblNewLabel_2_2_1_1);
+		
+		grade = new JTextField();
+		grade.setColumns(10);
+		grade.setBounds(278, 117, 120, 29);
+		panel.add(grade);
 		JButton btnNewButton = new JButton("Sign Up");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -122,6 +151,9 @@ public class Register extends JFrame {
 				user.setBirthday(bday.getDateStringOrEmptyString());
 				user.setPassword(new String(pass.getPassword()));
 				user.setUserName(username.getText());
+				user.setGradeLevel(grade.getText());
+				user.setSection(section.getText());
+				user.setSex(sex.getSelectedItem().toString());
 				if(Cred.signup(username.getText(), user) == 0) {
 					JOptionPane.showMessageDialog(contentPane, "Successfully Registered!");
 				}else{
@@ -146,5 +178,7 @@ public class Register extends JFrame {
 		lblNewLabel_3.setForeground(new Color(49, 152, 202));
 		lblNewLabel_3.setBounds(170, 296, 137, 16);
 		panel.add(lblNewLabel_3);
+		
+		
 	}
 }

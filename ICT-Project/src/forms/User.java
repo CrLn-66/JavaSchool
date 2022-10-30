@@ -1,11 +1,17 @@
 package forms;
 
+import java.io.File;
+
 public class User {
+	private File profile = new File("C:\\Users\\Abrasaldo\\eclipse-workspace\\ICT-Project\\src\\forms\\test.jpg");
 	private String firstName;
 	private String lastName;
 	private String password;
 	private String birthday;
 	private String userName;
+	private String section;
+	private String gradeLevel;
+	private String sex;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +43,30 @@ public class User {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getGradeLevel() {
+		return gradeLevel;
+	}
+	public void setGradeLevel(String gradeLevel) {
+		this.gradeLevel = gradeLevel;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public File getProfile() {
+		return profile;
+	}
+	public void setProfile(File profile) {
+		this.profile = profile;
 	}
 	
 	
